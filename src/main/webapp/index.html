@@ -1,18 +1,98 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" class="backend">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<!-- START META SECTION -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Adminre - backend</title>
+<meta name="author" content="pampersdry.info">
+<meta name="description"
+	content="Adminre is a clean and flat backend and frontend theme build with twitter bootstrap">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="image/touch/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="image/touch/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="image/touch/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="image/touch/apple-touch-icon-57x57-precomposed.png">
+<link rel="shortcut icon" href="image/favicon.ico">
+<!--/ END META SECTION -->
+
+<!-- START STYLESHEETS -->
+<!-- Plugins stylesheet : optional -->
+<link rel="stylesheet" href="plugins/selectize/css/selectize.css">
+<link rel="stylesheet" href="plugins/flot/css/flot.css">
+<link rel="stylesheet" href="plugins/magnific/css/magnific.css">
+<!--/ Plugins stylesheet : optional -->
+
+<!-- Application stylesheet : mandatory -->
+<link rel="stylesheet" href="stylesheet/bootstrap.css">
+<link rel="stylesheet" href="stylesheet/layout.css">
+<link rel="stylesheet" href="stylesheet/uielement.css">
+<!--/ Application stylesheet -->
+
+<!-- Theme stylesheet : optional -->
+<!--/ Theme stylesheet : optional -->
+
+<!-- modernizr script -->
+<script type="text/javascript" src="plugins/modernizr/js/modernizr.js"></script>
+<!--/ modernizr script -->
+<!-- END STYLESHEETS -->
+
 <script type="text/javascript" src="angular/angular.min.js"></script>
 <script type="text/javascript" src="angular/angular-route.min.js"></script>
 <script type="text/javascript" src="angular/angular-resource.min.js"></script>
 </head>
+
 <body>
-<section ng-view="">
+	<section ng-view=""></section>
 
-</section>
 
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/DashboardController.js"></script>
+
+
+
+	<script type="text/javascript">
+		var CONSTANTS = {
+
+			path : "/GestionProblemas"
+		};
+	</script>
+	<!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+	<!-- Application and vendor script : mandatory -->
+	<script type="text/javascript" src="javascript/vendor.js"></script>
+	<script type="text/javascript" src="javascript/core.js"></script>
+	<script type="text/javascript" src="javascript/backend/app.js"></script>
+	<!--/ Application and vendor script : mandatory -->
+
+	<!-- Plugins and page level script : optional -->
+	<script type="text/javascript" src="plugins/selectize/js/selectize.js"></script>
+	<script type="text/javascript" src="plugins/flot/js/jquery.flot.js"></script>
+	<script type="text/javascript"
+		src="plugins/flot/js/jquery.flot.resize.js"></script>
+	<script type="text/javascript"
+		src="plugins/flot/js/jquery.flot.categories.js"></script>
+	<script type="text/javascript"
+		src="plugins/flot/js/jquery.flot.time.js"></script>
+	<script type="text/javascript"
+		src="plugins/flot/js/jquery.flot.tooltip.js"></script>
+	<script type="text/javascript"
+		src="plugins/flot/js/jquery.flot.spline.js"></script>
+	<script type="text/javascript"
+		src="javascript/backend/pages/dashboard-v1.js"></script>
+	<script type="text/javascript"
+		src="plugins/magnific/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript"
+		src="plugins/stellar/js/jquery.stellar.js"></script>
+	<script type="text/javascript"
+		src="javascript/backend/pages/timeline-v1.js"></script>
+	<!--/ Plugins and page level script : optional -->
+	<!--/ END JAVASCRIPT SECTION -->
+
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/DashboardController.js"></script>
 </body>
 </html>

@@ -1,1 +1,289 @@
-<h1>Probando</h1>
+<section class="jumbotron mt-15 mb15 mr-15 ml-15"
+	data-stellar-background-ratio="0.4"
+	style="min-height: 320px; background-position: 50% -50px;">
+	<!-- pattern + overlay -->
+	<div class="overlay pattern pattern10"></div>
+	<!--/ pattern + overlay -->
+	<div class="container" style="padding-top: 8%;">
+		<h1 class="thin text-white text-center font-alt">Gestion de
+			Problemas Telefonica</h1>
+		<h4 class="thin text-white text-center">Adminre is a clean and
+			flat backend and frontend theme build with Twitter bootstrap</h4>
+		<div class="text-center pt15"></div>
+	</div>
+</section>
+
+<div class="row">
+	<!-- Left Side / Top side -->
+	<div class="col-md-9">
+		<div class="row">
+			<!-- 1/2 Grid -->
+			<div class="col-lg-6">
+				<!-- Post form -->
+				<form class="panel" action="">
+					<input type="text" class="form-control form-control-minimal"
+						name="idproblema" placeholder="ID problema"> <select
+						class="form-control form-control-minimal" name="grupo"
+						ng-model="usuario.nombregrupo"
+						ng-options="x.nombregrupo for x in grupos">
+					</select>
+
+					<div class="panel-footer">
+						<div class="panel-toolbar-wrapper">
+							<div class="panel-toolbar">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default">
+										<i class="ico-user-plus2"></i>
+									</button>
+									<button type="button" class="btn btn-default">
+										<i class="ico-camera3"></i>
+									</button>
+									<button type="button" class="btn btn-default">
+										<i class="ico-location"></i>
+									</button>
+
+								</div>
+							</div>
+							<div class="panel-toolbar text-right">
+								<button type="submit" class="btn btn-primary">Post</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!--/ Post form -->
+				<div class="panel" ng-repeat="problema in problemas">
+					<!-- User info -->
+					<ul class="list-table pa15">
+						<li class="text-left">
+							<p class="ellipsis nm">
+								<span class="semibold">Problema: </span> {{problema.idproblema}}
+							</p>
+							<p class="text-muted nm">Ultima Modificacion: {{problema.fechaupdate}}</p>
+						</li>
+						<li class="text-right" style="width: 60px;">
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-link dropdown-toggle text-default"
+									data-toggle="dropdown">
+									<i class="ico-menu2"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li><a href="javascript:void(0);">Report</a></li>
+									<li><a href="javascript:void(0);">Setting</a></li>
+									<li class="divider"></li>
+									<li><a href="javascript:void(0);" class="text-danger">Eliminar</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<!--/ User info -->
+					<hr class="nm">
+					<!-- horizontal line -->
+					<!-- Panel body -->
+					<div class="panel-body">
+						<h5 class="semibold mb5 mt0">Resumen: </h5>
+						<p class="nm ellipsis">
+							{{problema.resumen}}
+						</p>
+					</div>
+					<!--/ Panel body -->
+					<hr class="nm">
+					<!-- horizontal line -->
+					<!-- Thumbnail -->
+					<div class="thumbnail thumbnail-album">
+						<!-- meta -->
+						<ul class="meta">
+							<li class="text-left">
+							<p class="ellipsis nm">
+								<span class="semibold">Grupo: </span> {{problema.idgrupo}}
+							</p>
+							<p class="ellipsis nm">
+								<span class="semibold">Prioridad: </span> {{problema.idcategoria}}
+							</p>
+						</li>
+						</ul>
+						<!--/ meta -->
+					</div>
+					<!--/ Thumbnail -->
+					<hr class="nm">
+					<!-- horizontal line -->
+					<!-- Toolbar -->
+					<div class="panel-toolbar-wrapper">
+						<div class="panel-toolbar">
+							<a href="javascript:void(0);" class="semibold text-default">Going</a>
+							<span class="text-muted mr5 ml5">•</span> <a
+								href="javascript:void(0);" class="semibold text-default">Maybe</a>
+							<span class="text-muted mr5 ml5">•</span> <a
+								href="javascript:void(0);" class="semibold text-default">Share</a>
+						</div>
+					</div>
+					<!--/ Toolbar -->
+					<!-- Comment box -->
+					<textarea class="form-control form-control-minimal" rows="3"
+						placeholder="Write your comment"></textarea>
+					<!--/ Comment box -->
+				</div>
+				<!--/ image post -->
+			</div>
+			<!--/ 1/2 Grid -->
+
+			<!-- 1/2 Grid -->
+			<div class="col-lg-6">
+				<!-- image post -->
+				
+
+			</div>
+			<!--/ 1/2 Grid -->
+		</div>
+	</div>
+	<!--/ Left Side / Top side -->
+
+	<!-- Right Side / Bottom side -->
+	<div class="col-md-3">
+		<div class="panel panel-minimal nm">
+			<!-- START Twitter Widget -->
+			<div class="panel-toolbar-wrapper">
+				<div class="panel-toolbar">
+					<h5 class="semibold nm text-info">
+						<i class="ico-twitter mr5"></i>Twitter
+					</h5>
+				</div>
+				<div class="panel-toolbar text-right">
+					<button class="btn btn-sm btn-default">Follow</button>
+				</div>
+			</div>
+			<div class="panel-body pt0 pb0">
+				<ul class="list-table">
+					<li style="width: 55px;"><img class="img-circle"
+						src="image/avatar/avatar9.jpg" alt="" width="45px" height="45px">
+					</li>
+					<li class="text-left">
+						<h5 class="semibold ellipsis">
+							Tamara Moon<br> <small class="text-muted">@tmoon</small>
+						</h5>
+					</li>
+				</ul>
+			</div>
+			<ul class="nav nav-justified mt15">
+				<li class="text-center">
+					<h4 class="nm">12.5k</h4>
+					<p class="nm text-muted">Followers</p>
+				</li>
+				<li class="text-center">
+					<h4 class="nm">1853</h4>
+					<p class="nm text-muted">Following</p>
+				</li>
+				<li class="text-center">
+					<h4 class="nm">3451</h4>
+					<p class="nm text-muted">Tweets</p>
+				</li>
+			</ul>
+			<!--/ END Twitter Widget -->
+
+			<hr>
+			<!--horizontal line -->
+
+			<!-- START Bio -->
+			<div class="panel-toolbar-wrapper">
+				<div class="panel-toolbar">
+					<h5 class="semibold nm text-info">
+						<i class="ico-info2 mr5"></i>About
+					</h5>
+				</div>
+				<div class="panel-toolbar text-right">
+					<button class="btn btn-sm btn-default">
+						<i class="ico-pencil7"></i>
+					</button>
+				</div>
+			</div>
+			<div class="panel-body pt0">
+				<p class="semibold mb5">Bio</p>
+				<ul class="list-unstyled mb10">
+					<li><i class="ico-briefcase text-muted mr5"></i> UI/UX
+						Designer</li>
+					<li><i class="ico-graduation text-muted mr5"></i> Studied
+						interface design</li>
+					<li><i class="ico-location text-muted mr5"></i> Lives in
+						Sierra Leone</li>
+					<li><i class="ico-home4 text-muted mr5"></i> From Perth,
+						Australia</li>
+				</ul>
+				<address class="nm">
+					<p class="semibold nm">Address</p>
+					795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br>
+					<abbr title="Phone">P:</abbr> (123) 456-7890
+				</address>
+			</div>
+			<!--/ END Bio -->
+
+			<hr>
+			<!--horizontal line -->
+
+			<!-- START Friend lists -->
+			<div class="panel-toolbar-wrapper">
+				<div class="panel-toolbar">
+					<h5 class="semibold nm text-info">
+						<i class="ico-users3 mr5"></i>Friend lists
+					</h5>
+				</div>
+				<div class="panel-toolbar text-right">
+					<button class="btn btn-sm btn-default">
+						<i class="ico-plus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="panel-body pt0">
+				<div class="media-list media-list-contact">
+					<a href="page-message-rich.html" class="media"> <span
+						class="media-object pull-left"> <img
+							src="image/avatar/avatar1.jpg" class="img-circle" alt="">
+					</span> <span class="media-body"> <span class="media-heading"><span
+								class="hasnotification hasnotification-success mr5"></span>
+								Autumn Barker</span> <span class="media-meta">Sint Maarten</span>
+					</span>
+					</a> <a href="page-message-rich.html" class="media"> <span
+						class="media-object pull-left"> <img
+							src="image/avatar/avatar2.jpg" class="img-circle" alt="">
+					</span> <span class="media-body"> <span class="media-heading"><span
+								class="hasnotification hasnotification-success mr5"></span>
+								Giselle Horn</span> <span class="media-meta">Saudi Arabia</span>
+					</span>
+					</a> <a href="page-message-rich.html" class="media"> <span
+						class="media-object pull-left"> <img
+							src="image/avatar/avatar.png" class="img-circle" alt="">
+					</span> <span class="media-body"> <span class="media-heading"><span
+								class="hasnotification hasnotification-danger mr5"></span>
+								Austin Shields</span> <span class="media-meta">Ghana</span>
+					</span>
+					</a> <a href="page-message-rich.html" class="media"> <span
+						class="media-object pull-left"> <img
+							src="image/avatar/avatar.png" class="img-circle" alt="">
+					</span> <span class="media-body"> <span class="media-heading"><span
+								class="hasnotification hasnotification-danger mr5"></span> Caryn
+								Gibson</span> <span class="media-meta">Rwanda</span>
+					</span>
+					</a> <a href="page-message-rich.html" class="media"> <span
+						class="media-object pull-left"> <img
+							src="image/avatar/avatar3.jpg" class="img-circle" alt="">
+					</span> <span class="media-body"> <span class="media-heading"><span
+								class="hasnotification hasnotification-success mr5"></span> Nash
+								Evans</span> <span class="media-meta">Somalia</span>
+					</span>
+					</a>
+				</div>
+				<p class="nm">
+					<a href="javascript:void(0);" class="semibold">View all</a>
+				</p>
+			</div>
+			<!--/ END Friend lists -->
+		</div>
+	</div>
+	<!--/ Right side / bottom side -->
+	<script type="text/javascript">
+       		var CONSTANTS = {
+       				
+       			path: "/GestionProblemas"
+       		};
+        </script>
+</div>
+

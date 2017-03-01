@@ -3,12 +3,11 @@
  */
 var app = angular.module('app', [ 'ngRoute' ]);
 
-app.config(		function($routeProvider, $controllerProvider) {
-
-			app.registerCtrl = $controllerProvider.register;
-			$routeProvider.when('/', {
-				controller : 'DashboardController',
-				templateUrl : 'inicio.html'
-			});
+app.config([ '$routeProvider', function($routeProvider) {
+	
+	$routeProvider.when('/', {
+		templateUrl : "inicio.html",
+		controller : "DashboardController"
+	});
 			
-});
+}]);
