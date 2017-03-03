@@ -6,11 +6,11 @@ public class Problema {
 	private int idgrupo;
 	private int idusuario;
 	private String resumen;
-	private int idcategoria;
 	private String fechainicio;
 	private String fechaupdate;
 	private int idestado;
-	
+	private int idprioridad;
+	private int idimpacto;
 	/**
 	 * @return the idproblema
 	 */
@@ -60,18 +60,6 @@ public class Problema {
 		this.resumen = resumen;
 	}
 	/**
-	 * @return the idcategoria
-	 */
-	public int getIdcategoria() {
-		return idcategoria;
-	}
-	/**
-	 * @param idcategoria the idcategoria to set
-	 */
-	public void setIdcategoria(int idcategoria) {
-		this.idcategoria = idcategoria;
-	}
-	/**
 	 * @return the fechainicio
 	 */
 	public String getFechainicio() {
@@ -108,26 +96,52 @@ public class Problema {
 		this.idestado = idestado;
 	}
 	/**
+	 * @return the idprioridad
+	 */
+	public int getIdprioridad() {
+		return idprioridad;
+	}
+	/**
+	 * @param idprioridad the idprioridad to set
+	 */
+	public void setIdprioridad(int idprioridad) {
+		this.idprioridad = idprioridad;
+	}
+	/**
+	 * @return the idimpacto
+	 */
+	public int getIdimpacto() {
+		return idimpacto;
+	}
+	/**
+	 * @param idimpacto the idimpacto to set
+	 */
+	public void setIdimpacto(int idimpacto) {
+		this.idimpacto = idimpacto;
+	}
+	/**
 	 * @param idproblema
 	 * @param idgrupo
 	 * @param idusuario
 	 * @param resumen
-	 * @param idcategoria
 	 * @param fechainicio
 	 * @param fechaupdate
 	 * @param idestado
+	 * @param idprioridad
+	 * @param idimpacto
 	 */
-	public Problema(String idproblema, int idgrupo, int idusuario, String resumen, int idcategoria, String fechainicio,
-			String fechaupdate, int idestado) {
+	public Problema(String idproblema, int idgrupo, int idusuario, String resumen, String fechainicio,
+			String fechaupdate, int idestado, int idprioridad, int idimpacto) {
 		super();
 		this.idproblema = idproblema;
 		this.idgrupo = idgrupo;
 		this.idusuario = idusuario;
 		this.resumen = resumen;
-		this.idcategoria = idcategoria;
 		this.fechainicio = fechainicio;
 		this.fechaupdate = fechaupdate;
 		this.idestado = idestado;
+		this.idprioridad = idprioridad;
+		this.idimpacto = idimpacto;
 	}
 	/**
 	 * 
@@ -135,6 +149,8 @@ public class Problema {
 	public Problema() {
 		super();
 	}
+	
+
 	
 	
 }

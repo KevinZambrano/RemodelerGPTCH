@@ -7,8 +7,7 @@
 	<div class="container" style="padding-top: 8%;">
 		<h1 class="thin text-white text-center font-alt">Gestion de
 			Problemas Telefonica</h1>
-		<h4 class="thin text-white text-center">Adminre is a clean and
-			flat backend and frontend theme build with Twitter bootstrap</h4>
+		<h4 class="thin text-white text-center">Kevin Zambrano              {{theTime}}</h4>
 		<div class="text-center pt15"></div>
 	</div>
 </section>
@@ -22,12 +21,18 @@
 				<!-- Post form -->
 				<form class="panel" action="">
 					<input type="text" class="form-control form-control-minimal"
-						name="idproblema" placeholder="ID problema"> <select
+						name="idproblema" placeholder="ID problema"> 
+						Grupo: <select
 						class="form-control form-control-minimal" name="grupo"
-						ng-model="usuario.nombregrupo"
-						ng-options="x.nombregrupo for x in grupos">
+						ng-model="problema.idgrupo"
+						ng-options="x.idgrupo for x in grupos">
 					</select>
-
+					Usuario:
+					<select
+						class="form-control form-control-minimal" name="usuario"
+						ng-model="problema.idusuario">
+						<option ng-repeat="x in usuarios" value="{{x.idusuario}}">{{x.idusuario}}</option>
+					</select>
 					<div class="panel-footer">
 						<div class="panel-toolbar-wrapper">
 							<div class="panel-toolbar">

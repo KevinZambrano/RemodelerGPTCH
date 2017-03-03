@@ -35,10 +35,11 @@ public class ProblemaDao implements InterfaceProblema{
 		problema.setIdgrupo(rst.getInt("idgrupo"));
 		problema.setIdusuario(rst.getInt("idusuario"));
 		problema.setResumen(rst.getString("resumen"));
-		problema.setIdcategoria(rst.getInt("idcategoria"));
 		problema.setFechainicio(rst.getString("fechainicio"));
 		problema.setFechaupdate(rst.getString("fechaupdate"));
 		problema.setIdestado(rst.getInt("idestado"));
+		problema.setIdprioridad(rst.getInt("idprioridad"));
+		problema.setIdimpacto(rst.getInt("idimpacto"));
 		
 		return problema;
 	}
@@ -57,6 +58,27 @@ public class ProblemaDao implements InterfaceProblema{
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
 			return null;
+		}
+	}
+
+	public boolean agregar(Problema problema) throws SQLException, ClassNotFoundException {
+		try{
+			ConexionDB conn = ConexionDB.getInstancia();
+			PreparedStatement consulta = conn.getConnection().prepareStatement("insert into problema values(?,?,?,?,?,?,?,?,?)");
+			consulta.setString(1, problema.getIdproblema());
+			consulta.setInt(2, problema.getIdgrupo());
+			consulta.setInt(3, problema.getIdusuario());
+			consulta.setString(4, problema.getResumen());
+			consulta.setString(5, problema.getFechainicio());
+			consulta.setString(6, problema.getFechaupdate());
+			consulta.setInt(7, problema.getIdestado());
+			consulta.setInt(8, problema.getIdprioridad());
+			consulta.setInt(9, problema.getIdimpacto());
+			consulta.executeUpdate();
+			return true;
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+			return false;
 		}
 	}
 }

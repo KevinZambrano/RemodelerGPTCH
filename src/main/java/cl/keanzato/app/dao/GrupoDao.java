@@ -25,14 +25,16 @@ public class GrupoDao implements InterfaceGrupo{
 			return grupos;
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
+			return null;
 		}
-		return null;
+		
 	}
 
 	private Grupo parser(ResultSet rst) throws SQLException{
 		Grupo grupo = new Grupo();
 		
 		grupo.setIdgrupo(rst.getInt("idgrupo"));
+		grupo.setIdorganizacion(rst.getInt("idorganizacion"));
 		grupo.setNombregrupo(rst.getString("nombregrupo"));
 		
 		return grupo;

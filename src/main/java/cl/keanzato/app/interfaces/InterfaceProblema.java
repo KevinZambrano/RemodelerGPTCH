@@ -10,4 +10,6 @@ public interface InterfaceProblema {
 	public List<Problema> lista() throws SQLException, ClassNotFoundException;
 	
 	public Problema getProblema(String idproblema) throws SQLException, ClassNotFoundException;
+	
+	public boolean agregar(Problema problema) throws SQLException, ClassNotFoundException;
 }

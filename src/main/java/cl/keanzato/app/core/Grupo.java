@@ -3,7 +3,9 @@ package cl.keanzato.app.core;
 public class Grupo {
 
 	private int idgrupo;
+	private int idorganizacion;
 	private String nombregrupo;
+	
 	/**
 	 * @return the idgrupo
 	 */
@@ -17,24 +19,38 @@ public class Grupo {
 		this.idgrupo = idgrupo;
 	}
 	/**
-	 * @return the nombre
+	 * @return the idorganizacion
+	 */
+	public int getIdorganizacion() {
+		return idorganizacion;
+	}
+	/**
+	 * @param idorganizacion the idorganizacion to set
+	 */
+	public void setIdorganizacion(int idorganizacion) {
+		this.idorganizacion = idorganizacion;
+	}
+	/**
+	 * @return the nombregrupo
 	 */
 	public String getNombregrupo() {
 		return nombregrupo;
 	}
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombregrupo the nombregrupo to set
 	 */
 	public void setNombregrupo(String nombregrupo) {
 		this.nombregrupo = nombregrupo;
 	}
 	/**
 	 * @param idgrupo
-	 * @param nombre
+	 * @param idorganizacion
+	 * @param nombregrupo
 	 */
-	public Grupo(int idgrupo, String nombregrupo) {
+	public Grupo(int idgrupo, int idorganizacion, String nombregrupo) {
 		super();
 		this.idgrupo = idgrupo;
+		this.idorganizacion = idorganizacion;
 		this.nombregrupo = nombregrupo;
 	}
 	/**

@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -23,13 +24,28 @@ public class ProblemaController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/")
-	public List<Problema> problemas() throws ClassNotFoundException{
-		try{
+	public List<Problema> problemas() throws ClassNotFoundException {
+		try {
 			ProblemaDao problemaDao = new ProblemaDao();
 			return problemaDao.lista();
 		} catch (SQLException ex) {
-            Logger.getLogger(GrupoController.class.getName()).log(Level.SEVERE, null, ex);
-            throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-        }
+			Logger.getLogger(GrupoController.class.getName()).log(Level.SEVERE, null, ex);
+			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/problema")
+	public Response agregarProblema(Problema problema) throws ClassNotFoundException {
+		try {
+			ProblemaDao problemaDao = new ProblemaDao();
+			problemaDao.agregar(problema);
+			return Response.status(Response.Status.OK).build();
+		} catch (SQLException ex) {
+			Logger.getLogger(ProblemaController.class.getName()).log(Level.SEVERE, null, ex);
+			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+		}
 	}
 }
