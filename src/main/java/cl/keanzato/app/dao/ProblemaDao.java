@@ -3,7 +3,11 @@ package cl.keanzato.app.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import cl.keanzato.app.conexion.ConexionDB;
@@ -69,8 +73,11 @@ public class ProblemaDao implements InterfaceProblema{
 			consulta.setInt(2, problema.getIdgrupo());
 			consulta.setInt(3, problema.getIdusuario());
 			consulta.setString(4, problema.getResumen());
-			consulta.setString(5, problema.getFechainicio());
-			consulta.setString(6, problema.getFechaupdate());
+			DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+            String reportDate = df.format(today);
+			consulta.setString(5, reportDate);
+			consulta.setString(6, reportDate);
 			consulta.setInt(7, problema.getIdestado());
 			consulta.setInt(8, problema.getIdprioridad());
 			consulta.setInt(9, problema.getIdimpacto());

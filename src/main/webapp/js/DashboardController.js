@@ -42,6 +42,7 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 		var request = $http.post(CONSTANTS.path + "/gestion/problemas/problema", $scope.problema);
 		request.success(function(response){
 			$scope.cargarProblemas();
+			$scope.flagLoading = false;
 		});
 		request.error(function(response) {
 			alert("No se agrego correctamente.");
@@ -65,8 +66,84 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 		
 	};
 	
+	$scope.cargarEstados = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.get(CONSTANTS.path + "/gestion/estados");
+		request.success(function(response){
+			
+			$scope.estados = response;
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+			$scope.flagLoading = false;
+		});
+	}
+	
+	$scope.cargarPrioridades = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.get(CONSTANTS.path + "/gestion/prioridades");
+		request.success(function(response){
+			
+			$scope.prioridades = response;
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+			$scope.flagLoading = false;
+		});
+	}
+	
+	$scope.cargarImpacto = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.get(CONSTANTS.path + "/gestion/impacto");
+		request.success(function(response){
+			
+			$scope.impactos = response;
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+			$scope.flagLoading = false;
+		});
+	}
+	
+	$scope.agregarProblema = function(){
+		
+		var request = $http.post(CONSTANTS.path + "/gestion/problemas/problema",
+				$scope.problema);
+		request.success(function(response){
+			$scope.cargarProblemas();
+			$scope.cargarCantidadProblemas();
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+		});
+	}
+	
+	$scope.cargarCantidadProblemas = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.get(CONSTANTS.path + "/gestion/problemas/cantidad");
+		request.success(function(response){
+			$scope.cantidadproblemas = response;
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+			$scope.flagLoading = false;
+		});
+	}
 	
 	$scope.cargarGrupos();
 	$scope.cargarProblemas();
 	$scope.cargarUsuarios();
+	$scope.cargarEstados();
+	$scope.cargarPrioridades();
+	$scope.cargarImpacto();
+	$scope.cargarCantidadProblemas();
 });

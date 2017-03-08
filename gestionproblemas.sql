@@ -30,6 +30,9 @@ ADD CONSTRAINT problema_estado_FK FOREIGN KEY (idestado) REFERENCES estado(idest
 ALTER TABLE problema
 ADD CONSTRAINT problema_impacto FOREIGN KEY (idimpacto) REFERENCES impacto(idimpacto);
 
+insert into problema values('PBI000000030037',18,1,'Tiempo de demora Proceso EOD','01/03/2017 10:42:11','06/03/2017 14:57:47',3,3,2);
+insert into problema values('PBI000000030035',106,2,'Alertas de GoldenGate Proyecto OMS PROMSOSSDB01- RPAIOMS con lag mayor a 1 hora','22/02/2017 10:11:13','17/03/2017 0:00:00',1,3,2);
+
 
 
 create table comentarioproblema(
@@ -75,7 +78,7 @@ INSERT INTO estado VALUES(null, 'Borrador');
 INSERT INTO estado VALUES(null, 'En revision');
 INSERT INTO estado VALUES(null, 'Peticion de autorizacion');
 INSERT INTO estado VALUES(null, 'Asignado');
-INSERT INTO estado VALUES(null, 'Bajo investigacion')
+INSERT INTO estado VALUES(null, 'Bajo investigacion');
 INSERT INTO estado VALUES(null, 'Pendiente');
 INSERT INTO estado VALUES(null, 'Terminado');
 INSERT INTO estado VALUES(null, 'Rechazado');
@@ -547,6 +550,7 @@ ALTER TABLE usuario
 ADD CONSTRAINT usuario_grupo_FK FOREIGN KEY(idgrupo) REFERENCES grupo(idgrupo);
 
 INSERT INTO usuario VALUES(null, 4, 'Hugo C', 'Calderon', 'Galaz');
+INSERT INTO usuario VALUES(null, 106,'Juan C', 'Vasquez','Ayala');
 
 create table tarea(
 idtarea int(100) NOT NULL AUTO_INCREMENT,

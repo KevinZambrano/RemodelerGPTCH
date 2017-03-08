@@ -13,8 +13,20 @@ import cl.keanzato.app.interfaces.InterfaceUsuario;
 public class UsuarioDao implements InterfaceUsuario{
 
 	public Usuario getUsuario(int idusuario) throws SQLException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			ConexionDB conn = ConexionDB.getInstancia();
+			PreparedStatement consulta = conn.getConnection().prepareStatement("select * from usuario where idusuario = ?");
+			consulta.setInt(1, idusuario);
+			ResultSet rst = consulta.executeQuery();
+			Usuario usuario = new Usuario();
+			while(rst.next()){
+				usuario = parser(rst);
+			}
+			return usuario;
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+			return null;
+		}
 	}
 
 	public List<Usuario> lista() throws SQLException, ClassNotFoundException {

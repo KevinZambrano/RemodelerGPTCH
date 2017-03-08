@@ -59,6 +59,14 @@ public class Grupo {
 	public Grupo() {
 		super();
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Grupo [idgrupo=" + idgrupo + ", idorganizacion=" + idorganizacion + ", nombregrupo=" + nombregrupo
+				+ "]";
+	}
 	
 	
 }

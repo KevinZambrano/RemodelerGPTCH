@@ -1,4 +1,4 @@
-package cl.keanzato.app.core;
+package cl.keanzato.app.trans;
 
 public class ProblemaComplete {
 
@@ -6,10 +6,11 @@ public class ProblemaComplete {
 	private String grupo;
 	private String usuario;
 	private String resumen;
-	private String prioridad;
 	private String fechainicio;
 	private String fechaupdate;
 	private String estado;
+	private String prioridad;
+	private String impacto;
 	/**
 	 * @return the idproblema
 	 */
@@ -59,18 +60,6 @@ public class ProblemaComplete {
 		this.resumen = resumen;
 	}
 	/**
-	 * @return the prioridad
-	 */
-	public String getPrioridad() {
-		return prioridad;
-	}
-	/**
-	 * @param prioridad the prioridad to set
-	 */
-	public void setPrioridad(String prioridad) {
-		this.prioridad = prioridad;
-	}
-	/**
 	 * @return the fechainicio
 	 */
 	public String getFechainicio() {
@@ -107,32 +96,67 @@ public class ProblemaComplete {
 		this.estado = estado;
 	}
 	/**
+	 * @return the prioridad
+	 */
+	public String getPrioridad() {
+		return prioridad;
+	}
+	/**
+	 * @param prioridad the prioridad to set
+	 */
+	public void setPrioridad(String prioridad) {
+		this.prioridad = prioridad;
+	}
+	/**
+	 * @return the impacto
+	 */
+	public String getImpacto() {
+		return impacto;
+	}
+	/**
+	 * @param impacto the impacto to set
+	 */
+	public void setImpacto(String impacto) {
+		this.impacto = impacto;
+	}
+	/**
 	 * @param idproblema
 	 * @param grupo
 	 * @param usuario
 	 * @param resumen
-	 * @param prioridad
 	 * @param fechainicio
 	 * @param fechaupdate
 	 * @param estado
+	 * @param prioridad
+	 * @param impacto
 	 */
-	public ProblemaComplete(String idproblema, String grupo, String usuario, String resumen, String prioridad,
-			String fechainicio, String fechaupdate, String estado) {
+	public ProblemaComplete(String idproblema, String grupo, String usuario, String resumen, String fechainicio,
+			String fechaupdate, String estado, String prioridad, String impacto) {
 		super();
 		this.idproblema = idproblema;
 		this.grupo = grupo;
 		this.usuario = usuario;
 		this.resumen = resumen;
-		this.prioridad = prioridad;
 		this.fechainicio = fechainicio;
 		this.fechaupdate = fechaupdate;
 		this.estado = estado;
+		this.prioridad = prioridad;
+		this.impacto = impacto;
 	}
 	/**
 	 * 
 	 */
 	public ProblemaComplete() {
 		super();
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ProblemaComplete [idproblema=" + idproblema + ", grupo=" + grupo + ", usuario=" + usuario + ", resumen="
+				+ resumen + ", fechainicio=" + fechainicio + ", fechaupdate=" + fechaupdate + ", estado=" + estado
+				+ ", prioridad=" + prioridad + ", impacto=" + impacto + "]";
 	}
 	
 	

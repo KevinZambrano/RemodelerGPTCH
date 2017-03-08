@@ -149,6 +149,15 @@ public class Problema {
 	public Problema() {
 		super();
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Problema [idproblema=" + idproblema + ", idgrupo=" + idgrupo + ", idusuario=" + idusuario + ", resumen="
+				+ resumen + ", fechainicio=" + fechainicio + ", fechaupdate=" + fechaupdate + ", idestado=" + idestado
+				+ ", idprioridad=" + idprioridad + ", idimpacto=" + idimpacto + "]";
+	}
 	
 
 	

@@ -7,7 +7,8 @@
 	<div class="container" style="padding-top: 8%;">
 		<h1 class="thin text-white text-center font-alt">Gestion de
 			Problemas Telefonica</h1>
-		<h4 class="thin text-white text-center">Kevin Zambrano              {{theTime}}</h4>
+		<h4 class="thin text-white text-center">Kevin Zambrano
+			{{theTime}}</h4>
 		<div class="text-center pt15"></div>
 	</div>
 </section>
@@ -17,53 +18,58 @@
 	<div class="col-md-9">
 		<div class="row">
 			<!-- 1/2 Grid -->
-			<div class="col-lg-6">
-				<!-- Post form -->
+			<div class="col-lg-12">
 				<form class="panel" action="">
 					<input type="text" class="form-control form-control-minimal"
-						name="idproblema" placeholder="ID problema"> 
-						Grupo: <select
+						name="idproblema" placeholder="ID problema"
+						ng-model="problema.idproblema"> Grupo: <select
 						class="form-control form-control-minimal" name="grupo"
-						ng-model="problema.idgrupo"
-						ng-options="x.idgrupo for x in grupos">
+						ng-model="problema.idgrupo">
+						<option ng-repeat="x in grupos" value="{{x.idgrupo}}">{{x.nombregrupo}}</option>
+					</select> Usuario: <select class="form-control form-control-minimal"
+						name="usuario" ng-model="problema.idusuario">
+						<option ng-repeat="x in usuarios" value="{{x.idusuario}}">{{x.nombre}}
+							{{x.apellidopaterno}} {{x.apellidomaterno}}</option>
 					</select>
-					Usuario:
-					<select
-						class="form-control form-control-minimal" name="usuario"
-						ng-model="problema.idusuario">
-						<option ng-repeat="x in usuarios" value="{{x.idusuario}}">{{x.idusuario}}</option>
+
+					<textarea class="form-control form-control-minimal" rows="3"
+						placeholder="Resumen..." ng-model="problema.resumen"></textarea>
+					Estado: <select class="form-control form-control-minimal"
+						name="estado" ng-model="problema.idestado">
+						<option ng-repeat="x in estados" value="{{x.idestado}}">{{x.nombre}}</option>
+					</select> Prioridad: <select class="form-control form-control-minimal"
+						name="prioridad" ng-model="problema.idprioridad">
+						<option ng-repeat="x in prioridades" value="{{x.idprioridad}}">{{x.nombre}}</option>
+					</select> Impacto: <select class="form-control form-control-minimal"
+						name="impacto" ng-model="problema.idimpacto">
+						<option ng-repeat="x in impactos" value="{{x.idimpacto}}">{{x.nombre}}</option>
 					</select>
 					<div class="panel-footer">
-						<div class="panel-toolbar-wrapper">
-							<div class="panel-toolbar">
-								<div class="btn-group">
-									<button type="button" class="btn btn-default">
-										<i class="ico-user-plus2"></i>
-									</button>
-									<button type="button" class="btn btn-default">
-										<i class="ico-camera3"></i>
-									</button>
-									<button type="button" class="btn btn-default">
-										<i class="ico-location"></i>
-									</button>
 
-								</div>
-							</div>
+						<div class="panel-toolbar-wrapper">
 							<div class="panel-toolbar text-right">
-								<button type="submit" class="btn btn-primary">Post</button>
+								<button type="button" class="btn btn-primary"
+									ng-click="agregarProblema()">Post</button>
 							</div>
 						</div>
 					</div>
 				</form>
+			</div>
+			<div class="col-lg-6 animation delay animating fadeInDown" ng-repeat="problema in problemas" >
+				<!-- Post form -->
+
 				<!--/ Post form -->
-				<div class="panel" ng-repeat="problema in problemas">
+				<div class="panel">
 					<!-- User info -->
 					<ul class="list-table pa15">
 						<li class="text-left">
 							<p class="ellipsis nm">
 								<span class="semibold">Problema: </span> {{problema.idproblema}}
 							</p>
-							<p class="text-muted nm">Ultima Modificacion: {{problema.fechaupdate}}</p>
+							<p class="text-muted nm">Ultima Modificacion:
+								{{problema.fechaupdate}}</p>
+							<p class="text-muted nm">Fecha Inicio:
+								{{problema.fechainicio}}</p>
 						</li>
 						<li class="text-right" style="width: 60px;">
 							<div class="btn-group">
@@ -86,10 +92,8 @@
 					<!-- horizontal line -->
 					<!-- Panel body -->
 					<div class="panel-body">
-						<h5 class="semibold mb5 mt0">Resumen: </h5>
-						<p class="nm ellipsis">
-							{{problema.resumen}}
-						</p>
+						<h5 class="semibold mb5 mt0">Resumen:</h5>
+						<p class="nm ellipsis">{{problema.resumen}}</p>
 					</div>
 					<!--/ Panel body -->
 					<hr class="nm">
@@ -99,13 +103,30 @@
 						<!-- meta -->
 						<ul class="meta">
 							<li class="text-left">
-							<p class="ellipsis nm">
-								<span class="semibold">Grupo: </span> {{problema.idgrupo}}
-							</p>
-							<p class="ellipsis nm">
-								<span class="semibold">Prioridad: </span> {{problema.idcategoria}}
-							</p>
-						</li>
+
+								<p class="ellipsis nm">
+									<span class="semibold">Prioridad: </span>
+									{{problema.prioridad}}
+								</p>
+								<p class="ellipsis nm">
+									<span class="semibold">Impacto: </span> {{problema.impacto}}
+								</p>
+							</li>
+						</ul>
+						<!--/ meta -->
+					</div>
+					<div class="thumbnail thumbnail-album">
+						<!-- meta -->
+						<ul class="meta">
+							<li class="text-left">
+
+								<p class="ellipsis nm">
+									<span class="semibold">Grupo: </span> {{problema.grupo}}
+								</p>
+								<p class="ellipsis nm">
+									<span class="semibold">Usuario: </span> {{problema.usuario}}
+								</p>
+							</li>
 						</ul>
 						<!--/ meta -->
 					</div>
@@ -115,10 +136,10 @@
 					<!-- Toolbar -->
 					<div class="panel-toolbar-wrapper">
 						<div class="panel-toolbar">
-							<a href="javascript:void(0);" class="semibold text-default">Going</a>
-							<span class="text-muted mr5 ml5">•</span> <a
+							<a href="#/tareas/{{problema.idproblema}}" class="semibold text-default">Tareas</a>
+							<span class="text-muted mr5 ml5">- </span> <a
 								href="javascript:void(0);" class="semibold text-default">Maybe</a>
-							<span class="text-muted mr5 ml5">•</span> <a
+							<span class="text-muted mr5 ml5">-</span> <a
 								href="javascript:void(0);" class="semibold text-default">Share</a>
 						</div>
 					</div>
@@ -133,9 +154,12 @@
 			<!--/ 1/2 Grid -->
 
 			<!-- 1/2 Grid -->
-			<div class="col-lg-6">
+			<div class="col-lg-6 " id="loading"
+				style="text-align: center; margin: 10px;"
+				ng-show="flagLoading">
 				<!-- image post -->
-				
+
+				Cargando datos ... <br /> <img src="image/loading/spinner.gif">
 
 			</div>
 			<!--/ 1/2 Grid -->
@@ -171,8 +195,8 @@
 			</div>
 			<ul class="nav nav-justified mt15">
 				<li class="text-center">
-					<h4 class="nm">12.5k</h4>
-					<p class="nm text-muted">Followers</p>
+					<h4 class="nm">{{cantidadproblemas}}</h4>
+					<p class="nm text-muted">Problemas Abiertos</p>
 				</li>
 				<li class="text-center">
 					<h4 class="nm">1853</h4>
@@ -285,10 +309,10 @@
 	</div>
 	<!--/ Right side / bottom side -->
 	<script type="text/javascript">
-       		var CONSTANTS = {
-       				
-       			path: "/GestionProblemas"
-       		};
-        </script>
+		var CONSTANTS = {
+
+			path : "/GestionProblemas"
+		};
+	</script>
 </div>
 
