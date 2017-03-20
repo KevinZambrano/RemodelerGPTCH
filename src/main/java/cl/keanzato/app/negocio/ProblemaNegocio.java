@@ -49,7 +49,13 @@ public class ProblemaNegocio {
 	public int cantidadProblemas() throws ClassNotFoundException, SQLException{
 		ProblemaDao problemaDao = new ProblemaDao();
 		
-		int suma = problemaDao.lista().size();
+		int suma = 0;
+		
+		for(Problema i : problemaDao.lista()){
+			if(i.getIdestado()!=9){
+				suma = suma+1;
+			}
+		}
 		
 		return suma;
 	}

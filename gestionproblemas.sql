@@ -36,7 +36,7 @@ insert into problema values('PBI000000030035',106,2,'Alertas de GoldenGate Proye
 
 
 create table comentarioproblema(
-idcomentarioproblema int(11) NOT NULL,
+idcomentarioproblema int(11) NOT NULL AUTO_INCREMENT,
 idproblema varchar(50) NOT NULL,
 comentario varchar(2000) NOT NULL,
 PRIMARY KEY (idcomentarioproblema),
@@ -594,3 +594,29 @@ INSERT INTO prioridad VALUES(2, 'Media');
 INSERT INTO prioridad VALUES(3, 'Alta');
 INSERT INTO prioridad VALUES(4, 'Critica');
 
+
+create table notareunion(
+id_notareunion int(11) AUTO_INCREMENT,
+id_problema varchar(50) not null,
+titulo varchar(40),
+nota varchar(4000),
+fecha_reunion varchar(50),
+PRIMARY KEY(id_notareunion)
+);
+
+insert into notareunion values(
+null,
+'PBI000000029637',
+'Indispobilidad ESB',
+'Eliminar archivo de envio archivolog para la base de datos standby
+-Eduardo Zuñiga indica que la tarea no estaba designada a el, por lo que Juan Veliz vera si sigue pendiente la mejora, si es necesaria y de ser asi planificar la tarea.',
+'21/03/2017'
+);
+
+INSERT INTO notareunion values(
+null,
+'PBI000000029912',
+'Caídas o reinicios PRD5117',
+'Se abrio el ticket por detención de la máquina PRD5117 que da el servicio de base de datos, hace tres sabados viene pasando.',
+'21/03/2017'
+);

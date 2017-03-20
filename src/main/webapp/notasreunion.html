@@ -1,0 +1,96 @@
+<section class="jumbotron mt-15 mb15 mr-15 ml-15"
+	data-stellar-background-ratio="0.4"
+	style="min-height: 320px; background-position: 50% -50px;">
+	<!-- pattern + overlay -->
+	<div class="overlay pattern pattern10"></div>
+	<!--/ pattern + overlay -->
+	<div class="container" style="padding-top: 8%;">
+		<h1 class="thin text-white text-center font-alt">Gestion de
+			Problemas Telefonica</h1>
+		<h4 class="thin text-white text-center">Kevin Zambrano
+			{{theTime}}</h4>
+		<div class="text-center pt15"></div>
+	</div>
+</section>
+<div class="panel">
+	<div class="pb15 col-md-offset-4">
+		<div class="page-header-section">
+			<h4 class="title semibold">Notas Reuniones</h4>
+		</div>
+		<div class="page-header-section">
+			<!-- Toolbar -->
+			<div class="toolbar clearfix">
+				<div class="col-md-6">
+					<input type="text" placeholder="Buscar..." class="form-control"
+						ng-model="searchText">
+
+				</div>
+				<div class="col-sm-5">
+					<button class="btn btn-primary" data-toggle="collapse"
+						data-target="#form-task" aria-expanded="true">
+						<span class="ico-plus-circle2"></span> Nueva Nota
+					</button>
+				</div>
+			</div>
+			<!--/ Toolbar -->
+		</div>
+	</div>
+
+	<!-- add new task form -->
+	<form class="collapse in col-md-offset-4" id="form-task"
+		data-parsley-validate="" novalidate="" aria-expanded="true">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4">
+					<label class="control-label">ID Ticket</label> <input type="text"
+						name="idProblema" class="form-control" required=""
+						data-parsley-id="5008" ng-model="notaReunion.idProblema">
+					<ul class="parsley-errors-list" id="parsley-id-5008"></ul>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">Resumen</label> <input type="text"
+						name="titulo" class="form-control" required="" ng-model="notaReunion.titulo">
+					<ul class="parsley-errors-list"
+						id="parsley-id-multiple-participant"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-4">
+					<label class="control-label">Nota</label>
+					<textarea rows="4" cols="" class="form-control" ng-model="notaReunion.nota"></textarea>
+					<ul class="parsley-errors-list" id="parsley-id-7450"></ul>
+				</div>
+				<div class="col-sm-4">
+					<label class="control-label">Fecha de Reunion</label> 
+					<input type="date" class="form-control" ng-model="notaReunion.fechaReunion">
+					<ul class="parsley-errors-list" id="parsley-id-8904"></ul>
+				</div>
+				
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="reset" class="btn btn-default">Reset</button>
+			<button type="submit" class="btn btn-success" ng-click="agregarNota()">Guardar</button>
+		</div>
+	</form>
+	<!--/ add new task form -->
+	<div class="panel-body"
+		ng-repeat="notas in notasReuniones | filter:searchText">
+		<div class="table-layout nm">
+			<div class="col-xs-3 text-center valign-top">
+				<h5>Fecha de reunion: {{notas.fechaReunion}}</h5>
+				<img src="image/icons/supportservices.png" alt="" width="60">
+			</div>
+			<div class="col-xs-9">
+				<h5 class="semibold mt0">{{notas.idProblema}}</h5>
+				<h5 class="semibold mt0">{{notas.titulo}}</h5>
+				<p class="text-default">{{notas.nota}}</p>
+			</div>
+		</div>
+		<hr class="nm">
+	</div>
+
+
+</div>

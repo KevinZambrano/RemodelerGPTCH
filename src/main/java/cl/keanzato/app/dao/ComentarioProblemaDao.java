@@ -57,4 +57,18 @@ public class ComentarioProblemaDao implements InterfaceComentarioProblema {
 		return com;
 	}
 
+	public boolean agregar(ComentarioProblema comentario)throws SQLException, ClassNotFoundException {
+		try{
+			ConexionDB conn = ConexionDB.getInstancia();
+			PreparedStatement consulta = conn.getConnection().prepareStatement("insert into comentarioproblema values(null,?,?)");
+			consulta.setString(1, comentario.getIdproblema());
+			consulta.setString(2, comentario.getComentario());
+			consulta.executeUpdate();
+			return true;
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+			return false;
+		}
+	}
+
 }

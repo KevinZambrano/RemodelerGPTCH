@@ -1,7 +1,9 @@
 import java.sql.SQLException;
 
+import cl.keanzato.app.core.ComentarioProblema;
 import cl.keanzato.app.core.Grupo;
 import cl.keanzato.app.core.Problema;
+import cl.keanzato.app.dao.ComentarioProblemaDao;
 import cl.keanzato.app.dao.GrupoDao;
 import cl.keanzato.app.dao.ProblemaDao;
 import cl.keanzato.app.negocio.ProblemaNegocio;

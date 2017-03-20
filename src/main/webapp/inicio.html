@@ -55,7 +55,8 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-lg-6 animation delay animating fadeInDown" ng-repeat="problema in problemas" >
+			<div class="col-md-4 animation animating fadeInDown"
+				ng-repeat="problema in problemas">
 				<!-- Post form -->
 
 				<!--/ Post form -->
@@ -93,7 +94,7 @@
 					<!-- Panel body -->
 					<div class="panel-body">
 						<h5 class="semibold mb5 mt0">Resumen:</h5>
-						<p class="nm ellipsis">{{problema.resumen}}</p>
+						<p class="nm text-default">{{problema.resumen}}</p>
 					</div>
 					<!--/ Panel body -->
 					<hr class="nm">
@@ -104,11 +105,11 @@
 						<ul class="meta">
 							<li class="text-left">
 
-								<p class="ellipsis nm">
+								<p class="ellipsis nm text-default">
 									<span class="semibold">Prioridad: </span>
 									{{problema.prioridad}}
 								</p>
-								<p class="ellipsis nm">
+								<p class="ellipsis nm text-default">
 									<span class="semibold">Impacto: </span> {{problema.impacto}}
 								</p>
 							</li>
@@ -120,12 +121,13 @@
 						<ul class="meta">
 							<li class="text-left">
 
-								<p class="ellipsis nm">
+								<p class="ellipsis nm text-default">
 									<span class="semibold">Grupo: </span> {{problema.grupo}}
 								</p>
-								<p class="ellipsis nm">
+								<p class="ellipsis nm text-default">
 									<span class="semibold">Usuario: </span> {{problema.usuario}}
 								</p>
+
 							</li>
 						</ul>
 						<!--/ meta -->
@@ -136,18 +138,29 @@
 					<!-- Toolbar -->
 					<div class="panel-toolbar-wrapper">
 						<div class="panel-toolbar">
-							<a href="#/tareas/{{problema.idproblema}}" class="semibold text-default">Tareas</a>
-							<span class="text-muted mr5 ml5">- </span> <a
-								href="javascript:void(0);" class="semibold text-default">Maybe</a>
-							<span class="text-muted mr5 ml5">-</span> <a
+							<a href="#/tareas/{{problema.idproblema}}"
+								class="semibold text-default">Tareas</a> <span
+								class="text-muted mr5 ml5">- </span> <a
+								href="#/comentarioproblemas/{{problema.idproblema}}"
+								class="semibold text-default">Comentar</a> <span
+								class="text-muted mr5 ml5">-</span> <a
 								href="javascript:void(0);" class="semibold text-default">Share</a>
 						</div>
 					</div>
+					<div class="thumbnail thumbnail-album">
+						<ul class="meta">
+							<li class="text-left">
+								<p class="semibold text-default"
+									ng-repeat="comentario in comentarioProblemas"
+									ng-show="problema.idproblema===comentario.idproblema">{{comentario.comentario}}</p>
+							</li>
+						</ul>
+					</div>
 					<!--/ Toolbar -->
 					<!-- Comment box -->
-					<textarea class="form-control form-control-minimal" rows="3"
-						placeholder="Write your comment"></textarea>
+
 					<!--/ Comment box -->
+
 				</div>
 				<!--/ image post -->
 			</div>
@@ -155,8 +168,7 @@
 
 			<!-- 1/2 Grid -->
 			<div class="col-lg-6 " id="loading"
-				style="text-align: center; margin: 10px;"
-				ng-show="flagLoading">
+				style="text-align: center; margin: 10px;" ng-show="flagLoading">
 				<!-- image post -->
 
 				Cargando datos ... <br /> <img src="image/loading/spinner.gif">
@@ -171,14 +183,12 @@
 	<div class="col-md-3">
 		<div class="panel panel-minimal nm">
 			<!-- START Twitter Widget -->
-			<div class="panel-toolbar-wrapper">
-				<div class="panel-toolbar">
-					<h5 class="semibold nm text-info">
-						<i class="ico-twitter mr5"></i>Twitter
-					</h5>
+			<div class="table-layout nm">
+				<div class="col-xs-3 text-center valign-top">
+					<img src="image/icons/socialengagement.png" alt="" width="60">
 				</div>
-				<div class="panel-toolbar text-right">
-					<button class="btn btn-sm btn-default">Follow</button>
+				<div class="col-xs-9">
+					<a href="#/notas/reunion"><h5 class="semibold mt0">Notas Reuniones</h5></a>
 				</div>
 			</div>
 			<div class="panel-body pt0 pb0">

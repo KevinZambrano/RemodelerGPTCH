@@ -38,18 +38,6 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 		});
 	};
 
-	$scope.agregarProblema = function(){
-		var request = $http.post(CONSTANTS.path + "/gestion/problemas/problema", $scope.problema);
-		request.success(function(response){
-			$scope.cargarProblemas();
-			$scope.flagLoading = false;
-		});
-		request.error(function(response) {
-			alert("No se agrego correctamente.");
-		});
-	};
-	
-	
 	$scope.cargarUsuarios = function (){
 		$scope.flagLoading = true;
 
@@ -125,6 +113,21 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 		});
 	}
 	
+	$scope.agregarComentarioProblema = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.post(CONSTANTS.path + "/gestion/comentarioproblemas/agregar", 
+				$scope.comentarioProblema);
+		
+		request.success(function(response){
+			$scope.cargarComentariosProblemas();
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+		});
+	}
+	
 	$scope.cargarCantidadProblemas = function(){
 		$scope.flagLoading = true;
 		
@@ -139,6 +142,19 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 		});
 	}
 	
+	$scope.cargarComentarioProblemas = function(){
+		$scope.flagLoading = true;
+		
+		var request = $http.get(CONSTANTS.path + "/gestion/comentarioproblemas");
+		request.success(function(response){
+			$scope.comentarioProblemas = response;
+			$scope.flagLoading = false;
+		});
+		request.error(function(error){
+			alert(error);
+		});
+	}
+	
 	$scope.cargarGrupos();
 	$scope.cargarProblemas();
 	$scope.cargarUsuarios();
@@ -146,4 +162,5 @@ app.controller("DashboardController", function($scope, $http,$interval) {
 	$scope.cargarPrioridades();
 	$scope.cargarImpacto();
 	$scope.cargarCantidadProblemas();
+	$scope.cargarComentarioProblemas();
 });
